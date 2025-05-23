@@ -10,26 +10,11 @@ dotenv.config();
 connectDB();
 
 const app = express();
-const allowedOrigins = [
-  "https://slot-booking-6wai.vercel.app", // Your frontend domain
-];
-
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
-  })
-);
+app.use(cors());
 app.use(express.json());
 
 // Routes
-app.get("/", (req, res) => {
+aap.get("/", (req, res) => {
   res.send("API is running...");
 });
 app.use("/api/auth", authRoutes);
